@@ -69,4 +69,12 @@ removes a file
 
 
 ###1.4 Forking and Cloning
-I was confused by how to do this totally smooth like.
+If you were going to write instructions for a new person on how to create a new repo, fork a repo, and clone a repo, what would they be?
+Create an account on GItHub. Find a repository that you want to fork. Click the fork button. Forking repo done. Copy and paste the HTTPS clone url. In the command line, navigate to the folder you would like to clone to and type "git clone" followed by the HTTPS url you copied. Cloning repo done.
+
+Why would you fork a repository as opposed to create a new one?
+If you find a repo that you think you could add something worthwhile to, you would fork a branch of your own to then work on and add features. This is one of the crucial things that GitHub provides: collaboration on projects. If your code turns out to be as affective as you hoped, it could be merged into the master code.
+
+What struggles did you have setting up git and GitHub? What did you learn in the process?
+I found this exercise to be pretty straightforward. It really is as simple as just clicked the buttons as instructed. But I did find myself not entirely sure what I was doing at first. I was getting the desired outcomes but I didn't really know what each step was achieving. After looking over the instructions a few times and repeating the steps I feel like I've got the steps memorized and have a solid understanding of what each thing is doing. Awesome
+
