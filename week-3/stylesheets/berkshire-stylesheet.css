@@ -1,0 +1,112 @@
+html {
+  background-color: #ffffff;
+  color: #000080;
+}
+
+h1 {
+  font-size:20px;
+  text-align:center;
+}
+
+h1::first-letter {
+  font-size:40px;
+}
+
+h3 {
+  font-size:14px;
+  text-align:center;
+  width: 15%;
+  margin: 0 auto;
+  line-height: 90%;
+}
+
+h2 {
+  font-size:18px;
+  text-align:center;
+}
+
+.heading {
+  line-height:40%;
+}
+
+.letters {
+  font-size: 40px;
+}
+
+a:visited {
+  color: #ff0000;
+}
+
+a {
+  color: #800080;
+}
+
+p {
+  font-size: 10px;
+}
+
+.links-left {
+  float: left;
+  width: 33%;
+  line-height: 250%;
+  font-size: 15px;
+}
+
+.links-right {
+  float: right;
+  width: 50%;
+  line-height: 250%;
+  font-size: 15px;
+}
+
+.detail {
+  line-height: 0%;
+}
+
+article {
+  clear: both;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.line-break{
+  height: 1px;
+  background: #000000;
+  width: 100%;
+}
+
+#geico-info {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 150%;
+}
+
+#contact {
+  font-size: 12px;
+}
+
+#law {
+  font-size: 14px;
+}
+
+img {
+  margin: 0% 50% 0% 45%;
+}
+
+
+/* what is important to know when linking an external file to an HTML file?
+- for me, it was important to make sure that the relative path was correct, for obvious reasons. I'm still not sure what the rel and type keywords are for. I'm assuming that defining those values allow the html file to interpret the external file in the correct way. It's something that I'll look up in my free time.
+
+what tricks did you use to help you with positioning? How hard was it to get the site as you wanted it?
+- positioning is easily the most difficult part of styling pages for me. i used float: left/right with success, used margin: 0 auto then manipulated the width, also used line-height to control spacing and it worked well. I think I will be able to get pretty close to what i want in the future with those commands, but at this moment I'm not 100% sure what each of them does exactly.
+
+what css did you use to modify the element style?
+- I used color, background color, font size
+
+
+did you modify the HTML to include classes or ids? If so, which did you choose and why? If you didn't how would you know which one to add to your HTML?
+- i tried to use class when there were several elements that all had to be manipulated together. I used ids when there was just one element that needed to be manipulated. if I didn't use them I wouldn't have be able to do the project.
+
+when you compared your site to the actual code base, which do you think had cleaner code that followed best practices and why?
+- it is tough for me to determine what best practice really means in a lot of these situations because i'm pretty new to the language. i would say that for me, best practice means keeping the code as clean and concise as possible while managing to get the desired output. when comparing my code to the site's source code, it seems that their code is much more complicated than mine. they use tables for a lot of the information and do their styling in HTML. so i think my code is more clear, and i don't think i'm missing out on any better function that they have. i would like to hear arguments about why nesting in tables would ever be a better approach, because at this time it seems to only make things more confusing.
