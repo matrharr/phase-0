@@ -8,7 +8,7 @@
 ![8](imgs/devtool_8.png)
 ![9](imgs/devtool_9.png)
 
-<!-- How can you use Chrome's Devtools inspector to help you format or position elements?
+ How can you use Chrome's Devtools inspector to help you format or position elements?
   - It works pretty well because you can navigate quickly and manipulate properties and elements easily and change back easily. The set up is nice because you can get feedback instantly, rather than switching from a text editor to a browser.
 
 How can you resize elements on the DOM using CSS?
@@ -22,4 +22,3 @@ What are the differences between margin, border, and padding?
 What was your impression of this challenge overall? (love, hate, and why?)
 - at first I found it very frustrating because I didn't have a good grasp of css in general. working with a pair on it was great, and I think we both learned a good bit. I feel like using devtools helped me gain a better perspective of css and it does seem a little more straightforward. I plan on using devtools in the future.
 
--->
