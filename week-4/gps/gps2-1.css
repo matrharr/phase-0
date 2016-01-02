@@ -1,0 +1,25 @@
+header {
+  border-bottom: 2px solid blue;
+}
+
+.column-1 {
+  float: left;
+  width: 40%;
+  height: 75em;
+  padding-left: 5%;
+  padding-right: 5%;
+
+}
+
+.column-2 {
+  width: 45%;
+  height: 75em;
+  float: right;
+  padding-left: 5%
+}
+
+footer {
+  clear: both;
+  height: 5em;
+  border: 2px solid blue
+}
