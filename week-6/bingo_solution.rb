@@ -103,7 +103,7 @@
 
 class BingoBoard
 
-  def initialize(board)
+  def initialize
     @bingo_board = create_bingo_board
   end
 
@@ -124,11 +124,22 @@ class BingoBoard
 
   def bingo_selector
     @letter = ["B", "I", "N", "G", "O"].sample
-    @rand_num = rand(1..75)
+    if @letter == "B"
+      @rand_num = rand(1..15)
+    elsif @letter == "I"
+      @rand_num = rand(16..30)
+    elsif @letter == "N"
+      @rand_num = rand(31..45)
+    elsif @letter == "G"
+      @rand_num = rand(46..60)
+    elsif @letter == "O"
+      @rand_num = rand(60..75)
+    end
+    output = [@letter, @rand_num]
   end
 
   def checker
-    bingo_selector
+    p bingo_selector
     if @letter =="B"
       i = 0
       while i < @bingo_board.size
@@ -186,13 +197,13 @@ end
 
 
 #DRIVER CODE (I.E. METHOD CALLS) GO BELOW THIS LINE
-board = [[4, 4, 7, 8, 8],
-        [2, 6, 7, 6, 7],
-        [8, 8, 9, 8, 5],
-        [2, 3, 9, 6, 5],
-        [7, 7, 5, 8, 8]]
+#board = [[4, 4, 7, 8, 8],
+        # [2, 6, 7, 6, 7],
+        # [8, 8, 9, 8, 5],
+        # [2, 3, 9, 6, 5],
+        # [7, 7, 5, 8, 8]]
 
-new_game = BingoBoard.new(board)
+new_game = BingoBoard.new
 
 new_game.checker
 
