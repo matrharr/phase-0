@@ -127,6 +127,8 @@ def create_bingo_board
       board[i][4] = rand(60..75)
     i += 1
   end
+      board[2][2] = "X"
+      board
 end
 
 
