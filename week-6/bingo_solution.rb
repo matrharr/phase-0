@@ -23,85 +23,13 @@
   # p arr[0]
 
 # Display the board to the console (prettily)
-  # p arr[0].each {|n| p |n}
-  # p arr[1].each {|n| p |n}
-  # p arr[2].each {|n| p |n}
-  # p arr[3].each {|n| p |n}
-  # p arr[4].each {|n| p |n}
+  # @bingo_board.each do |r|
+    # puts r.each {|p| p }.join("  ")
+    # end
 
 
 
 # Initial Solution
-
-class BingoBoard
-
-  def initialize(board)
-    @bingo_board = board
-  end
-
-  def bingo_selector
-    letter_arr = ["B", "I", "N", "G", "O"]
-    @rand_num = rand(1..10)
-    p @bingo_call = [letter_arr.sample, @rand_num ]
-  end
-
-  def checker
-    bingo_selector
-    if @bingo_call[0] =="B"
-      i = 0
-      while i < @bingo_board.size
-        if @bingo_board[i][0] == @bingo_call[1]
-          @bingo_board[i][0] = "X"
-        end
-        i += 1
-      end
-    elsif @bingo_call[0] =="I"
-      i = 0
-      while i < @bingo_board.size
-        if @bingo_board[i][1] == @bingo_call[1]
-          @bingo_board[i][1] = "X"
-        end
-        i += 1
-      end
-    elsif @bingo_call[0] =="N"
-      i = 0
-      while i < @bingo_board.size
-        if @bingo_board[i][2] == @bingo_call[1]
-          @bingo_board[i][2] = "X"
-        end
-        i += 1
-      end
-    elsif @bingo_call[0] =="G"
-      i = 0
-      while i < @bingo_board.size
-        if @bingo_board[i][3] == @bingo_call[1]
-          @bingo_board[i][3] = "X"
-        end
-        i += 1
-      end
-    elsif @bingo_call[0] =="O"
-      i = 0
-      while i < @bingo_board.size
-        if @bingo_board[i][4] == @bingo_call[1]
-          @bingo_board[i][4] = "X"
-        end
-        i += 1
-      end
-    end
-  p @bingo_call
-  display_bingo_board
-
-  end
-
-  def display_bingo_board
-    @bingo_board.each do |r|
-    puts r.each {|p| p }.join("  ")
-    end
-  end
-
-end
-
-# Refactored Solution
 
 # class BingoBoard
 
@@ -110,26 +38,150 @@ end
 #   end
 
 #   def bingo_selector
-#     @letter_arr = ["B", "I", "N", "G", "O"].sample
+#     letter_arr = ["B", "I", "N", "G", "O"]
 #     @rand_num = rand(1..10)
+#     p @bingo_call = [letter_arr.sample, @rand_num ]
 #   end
 
-#CREATE A BINGO BOARD
+#   def checker
+#     bingo_selector
+#     if @bingo_call[0] =="B"
+#       i = 0
+#       while i < @bingo_board.size
+#         if @bingo_board[i][0] == @bingo_call[1]
+#           @bingo_board[i][0] = "X"
+#         end
+#         i += 1
+#       end
+#     elsif @bingo_call[0] =="I"
+#       i = 0
+#       while i < @bingo_board.size
+#         if @bingo_board[i][1] == @bingo_call[1]
+#           @bingo_board[i][1] = "X"
+#         end
+#         i += 1
+#       end
+#     elsif @bingo_call[0] =="N"
+#       i = 0
+#       while i < @bingo_board.size
+#         if @bingo_board[i][2] == @bingo_call[1]
+#           @bingo_board[i][2] = "X"
+#         end
+#         i += 1
+#       end
+#     elsif @bingo_call[0] =="G"
+#       i = 0
+#       while i < @bingo_board.size
+#         if @bingo_board[i][3] == @bingo_call[1]
+#           @bingo_board[i][3] = "X"
+#         end
+#         i += 1
+#       end
+#     elsif @bingo_call[0] =="O"
+#       i = 0
+#       while i < @bingo_board.size
+#         if @bingo_board[i][4] == @bingo_call[1]
+#           @bingo_board[i][4] = "X"
+#         end
+#         i += 1
+#       end
+#     end
+#   p @bingo_call
+#   display_bingo_board
 
-def create_bingo_board
-  board = Array.new(5) {Array.new(5)}
-  i = 0
-  while i < board.size
+#   end
+
+#   def display_bingo_board
+#     @bingo_board.each do |r|
+#     puts r.each {|p| p }.join("  ")
+#     end
+#   end
+
+# end
+
+# Refactored Solution
+
+class BingoBoard
+
+  def initialize(board)
+    @bingo_board = create_bingo_board
+  end
+
+  def create_bingo_board
+    board = Array.new(5) {Array.new(5)}
+    i = 0
+    while i < board.size
       board[i][0] = rand(1..15)
       board[i][1] = rand(16..30)
       board[i][2] = rand(31..45)
       board[i][3] = rand(46..60)
       board[i][4] = rand(60..75)
     i += 1
-  end
+    end
       board[2][2] = "X"
       board
+  end
+
+  def bingo_selector
+    @letter = ["B", "I", "N", "G", "O"].sample
+    @rand_num = rand(1..75)
+  end
+
+  def checker
+    bingo_selector
+    if @letter =="B"
+      i = 0
+      while i < @bingo_board.size
+        if @bingo_board[i][0] == @rand_num
+           @bingo_board[i][0] = "X"
+        end
+        i += 1
+      end
+    elsif @letter =="I"
+      i = 0
+      while i < @bingo_board.size
+        if @bingo_board[i][1] == @rand_num
+          @bingo_board[i][1] = "X"
+        end
+        i += 1
+      end
+    elsif @letter =="N"
+      i = 0
+      while i < @bingo_board.size
+        if @bingo_board[i][2] == @rand_num
+          @bingo_board[i][2] = "X"
+        end
+        i += 1
+      end
+    elsif @letter =="G"
+      i = 0
+      while i < @bingo_board.size
+        if @bingo_board[i][3] == @rand_num
+          @bingo_board[i][3] = "X"
+        end
+        i += 1
+      end
+    elsif @letter =="O"
+      i = 0
+      while i < @bingo_board.size
+        if @bingo_board[i][4] == @rand_num
+          @bingo_board[i][4] = "X"
+        end
+        i += 1
+      end
+    end
+
+    display_bingo_board
+  end
+
+    def display_bingo_board
+      @bingo_board.each do |r|
+      puts r.each {|p| p }.join("  ")
+      end
+    end
 end
+
+
 
 
 
@@ -142,7 +194,7 @@ board = [[4, 4, 7, 8, 8],
 
 new_game = BingoBoard.new(board)
 
-new_game.bingo_selector
+new_game.checker
 
 
 #Reflection
