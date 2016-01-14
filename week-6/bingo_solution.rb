@@ -42,7 +42,7 @@ class BingoBoard
   def bingo_selector
     letter_arr = ["B", "I", "N", "G", "O"]
     @rand_num = rand(1..10)
-    @bingo_call = [letter_arr.sample, @rand_num ]
+    p @bingo_call = [letter_arr.sample, @rand_num ]
   end
 
   def checker
@@ -95,13 +95,39 @@ class BingoBoard
 
   def display_bingo_board
     @bingo_board.each do |r|
-      puts r.each {|p| p }.join(" ")
+    puts r.each {|p| p }.join("  ")
     end
   end
 
 end
 
 # Refactored Solution
+
+# class BingoBoard
+
+#   def initialize(board)
+#     @bingo_board = board
+#   end
+
+#   def bingo_selector
+#     @letter_arr = ["B", "I", "N", "G", "O"].sample
+#     @rand_num = rand(1..10)
+#   end
+
+#CREATE A BINGO BOARD
+
+def create_bingo_board
+  board = Array.new(5) {Array.new(5)}
+  i = 0
+  while i < board.size
+      board[i][0] = rand(1..15)
+      board[i][1] = rand(16..30)
+      board[i][2] = rand(31..45)
+      board[i][3] = rand(46..60)
+      board[i][4] = rand(60..75)
+    i += 1
+  end
+end
 
 
 
@@ -114,7 +140,7 @@ board = [[4, 4, 7, 8, 8],
 
 new_game = BingoBoard.new(board)
 
-10.times do new_game.checker end
+new_game.bingo_selector
 
 
 #Reflection
