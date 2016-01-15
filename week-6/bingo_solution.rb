@@ -1,6 +1,6 @@
 # A Nested Array to Model a Bingo Board SOLO CHALLENGE
 
-# I spent [#] hours on this challenge.
+# I spent [2.5] hours on this challenge.
 
 
 # Release 0: Pseudocode
@@ -138,47 +138,44 @@ class BingoBoard
     output = [@letter, @rand_num]
   end
 
-  def checker
+  def play
     p bingo_selector
-    if @letter =="B"
-      i = 0
-      while i < @bingo_board.size
-        if @bingo_board[i][0] == @rand_num
-           @bingo_board[i][0] = "X"
+    counter = 0
+    case @letter
+    when "B"
+      while counter < @bingo_board.size
+        if @bingo_board[counter][0] == @rand_num
+           @bingo_board[counter][0] = "X"
         end
-        i += 1
+        counter += 1
       end
-    elsif @letter =="I"
-      i = 0
-      while i < @bingo_board.size
-        if @bingo_board[i][1] == @rand_num
-          @bingo_board[i][1] = "X"
+    when "I"
+      while counter < @bingo_board.size
+        if @bingo_board[counter][1] == @rand_num
+           @bingo_board[counter][1] = "X"
         end
-        i += 1
+        counter += 1
       end
-    elsif @letter =="N"
-      i = 0
-      while i < @bingo_board.size
-        if @bingo_board[i][2] == @rand_num
-          @bingo_board[i][2] = "X"
+    when "N"
+      while counter < @bingo_board.size
+        if @bingo_board[counter][2] == @rand_num
+           @bingo_board[counter][2] = "X"
         end
-        i += 1
+        counter += 1
       end
-    elsif @letter =="G"
-      i = 0
-      while i < @bingo_board.size
-        if @bingo_board[i][3] == @rand_num
-          @bingo_board[i][3] = "X"
+    when "G"
+      while counter < @bingo_board.size
+        if @bingo_board[counter][3] == @rand_num
+           @bingo_board[counter][3] = "X"
         end
-        i += 1
+        counter += 1
       end
-    elsif @letter =="O"
-      i = 0
-      while i < @bingo_board.size
-        if @bingo_board[i][4] == @rand_num
-          @bingo_board[i][4] = "X"
+    when "O"
+      while counter < @bingo_board.size
+        if @bingo_board[counter][4] == @rand_num
+           @bingo_board[counter][4] = "X"
         end
-        i += 1
+        counter += 1
       end
     end
 
@@ -187,7 +184,7 @@ class BingoBoard
 
     def display_bingo_board
       @bingo_board.each do |r|
-      puts r.each {|p| p }.join("  ")
+      puts r.each {|p| p }.join("      ")
       end
     end
 end
@@ -195,7 +192,7 @@ end
 
 
 
-
+# Maybe add case, maybe use each with index method
 #DRIVER CODE (I.E. METHOD CALLS) GO BELOW THIS LINE
 #board = [[4, 4, 7, 8, 8],
         # [2, 6, 7, 6, 7],
@@ -205,7 +202,14 @@ end
 
 new_game = BingoBoard.new
 
-new_game.checker
+new_game.play
 
 
 #Reflection
+# How difficult was pseudocoding this challenge? What do you think of your pseudocoding style?- pseudocoding was a bit tough because I haven't created a class of this size before, so there were a few things that were more complicated than I anticipated. In general, I could probably use more indents and spacing, capitalize ruby keywords and methods. Doing those best practices would certainly make it easier for someone else to read and understand my pseudocode.
+# What are the benefits of using a class for this challenge?  - you want to create a board object that is repeatedly affected by the methods. So when you create a new instance of a bingoboard you have a unique board that can participate in the calling of letters and numbers. if you created several boards and they were all responding to the same bingo call(like a real game of bingo), it is likely that one board would finish the game before the others. classes allow for unique objects to be created like in this challenge.
+# How can you access coordinates in a nested array? - if you know what you are looking for you could put something like bingo_arr[0][2] and get what you want. if you were iterating and had really no idea where the element you wanted to affect was, you would run a loop inside of loop which would iterate through the nested arrays.
+# What methods did you use to access and modify the array? - I used while loops, I used .each, .join. I tried to use each with index on the play method, but couldn't get it to work. I think that for what I want to do, there is a way to use that method, but I just couldn't get it going in time.
+# Give an example of a new method you learned while reviewing the Ruby docs. Based on what you see in the docs, what purpose does it serve, and how is it called? - i learned about each with index, which takes two parameters, element and index. you can then call these in the block, doing whatever. I think I could use this method to replace my while loops, but I couldn't get it working in time.
+# How did you determine what should be an instance variable versus a local variable? - any variable that is being used across methods should be an instance variable so that it can be accessed across the class. local variable are just used only in the method it originates. One question I would love to have answered: if the output of a method is an altered instance variable, and there is another (2nd)method that performs another action on that altered version, is it best practice to call the first method or the instance variable in the 2nd method?
+# What do you feel is most improved in your refactored solution? - I created a more realistic bingo board and the numbers called match the actual range they should for each letter in bingo. I changed the play method to a case statement which I think looks a bit better and made the loops a bit simpler. I renamed some variables to enhance readability. Going forward, I would look to refactor the play method using ruby methods that would work.
