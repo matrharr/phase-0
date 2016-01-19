@@ -1,7 +1,10 @@
+
+
+
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge Akeem.
+# We spent [2.5] hours on this challenge.
 
 # EXPLANATION OF require_relative
 #Relative refers to the file path, best use of require relative is when referring to local files that are related to project.
@@ -43,47 +46,41 @@ class VirusPredictor
 
   # calls main methods
   def virus_effects
-    predicted_deaths#(@population_density, @population, @state)
-    speed_of_spread#(@population_density, @state)
+    predicted_deaths
+    speed_of_spread
   end
 
   private
   # calcs deaths for state, prints string
   # change to case statement
-  def predicted_deaths#(population_density, population, #state)
+  def predicted_deaths
     # predicted deaths is solely based on population density
-    if @population_density >= 200
-      number_of_deaths = (@population * 0.4).floor
-    elsif @population_density >= 150
-      number_of_deaths = (@population * 0.3).floor
-    elsif @population_density >= 100
-      number_of_deaths = (@population * 0.2).floor
-    elsif @population_density >= 50
-      number_of_deaths = (@population * 0.1).floor
-    else
-      number_of_deaths = (@population * 0.05).floor
+
+    case @population_density
+      when 200..1000000 then number_of_deaths = (@population * 0.4).floor
+      when 150..199 then number_of_deaths = (@population * 0.3).floor
+      when 100..149 then number_of_deaths = (@population * 0.2).floor
+      when 50..99 then number_of_deaths = (@population * 0.1).floor
+      else number_of_deaths = (@population * 0.05).floor
     end
 
-    print "#{@state_name} will lose #{number_of_deaths} people in this outbreak"
+    print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
   end
 
   #calcs speed and puts string
-  def speed_of_spread#(population_density, state) #in months
+  def speed_of_spread
+    #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
 
-    if @population_density >= 200
-      speed += 0.5
-    elsif @population_density >= 150
-      speed += 1
-    elsif @population_density >= 100
-      speed += 1.5
-    elsif @population_density >= 50
-      speed += 2
-    else
-      speed += 2.5
+    case @population_density
+      when 200..1000000 then speed += 0.5
+      when 150..199 then speed += 1
+      when 100..149 then speed += 1.5
+      when 50 ..99 then speed += 2
+      else speed += 2
     end
 
     puts " and will spread across the state in #{speed} months.\n\n"
@@ -99,7 +96,7 @@ end
 
 
 alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
-alabama.all_data
+alabama.virus_effects
 
 # jersey = VirusPredictor.new("New Jersey", STATE_DATA["New Jersey"][:population_density], STATE_DATA["New Jersey"][:population])
 # jersey.virus_effects
@@ -113,3 +110,10 @@ alabama.all_data
 
 #=======================================================================
 # Reflection Section
+# What are the differences between the two different hash syntaxes shown in the state_data file? - one uses the rocket/arrow version, the other uses symbols to point to values
+# What does require_relative do? How is it different from require? require relative uses the relative path and require uses the absolute path to link files
+# What are some ways to iterate through a hash? - you can use a method like each, and incorporate brackets when necessary
+# When refactoring virus_effects, what stood out to you about the variables, if anything? - just that you had to enter all of the arguments when inside those methods they just referred to instance variables so you could just do away with all the parameters
+# What concept did you most solidify in this challenge? - use case rather than elsifs when you are just comparing one variable repeatedly.
+
+
