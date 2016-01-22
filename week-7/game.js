@@ -124,12 +124,22 @@ go("south")
 
 
 
+
+// TO ADD
+// Make map 3x3, 5 more rooms
+// Randomize player and ghost starting location
+// Use constructor to make three ghosts
+// Give instructions at start of game
+// Give player option to capture ghost
+//    - pts awarded if successfully captured bad ghosts/released good ghosts
+//    - if you make the right decision on two out of the three ghosts you win, else you lose
+// Give instruction as to which directions the player may move
 // Reflection
 //
-// first, verify player position with room
-// once I know what room, check if the direction entered is an existing property
-//  IF it is, then change player position to the property's value, a room
-//  ELSE return that there is nothing in that direction
+//
+//
+//
+//
 //
 //
 //
