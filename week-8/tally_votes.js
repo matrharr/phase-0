@@ -1,7 +1,7 @@
 // Tally Votes in JavaScript Pairing Challenge.
 
-// I worked on this challenge with:
-// This challenge took me [#] hours.
+// I worked on this challenge with: Brian Bier
+// This challenge took me [3] hours.
 
 // These are the votes cast by each student. Do not alter these objects here.
 var votes = {
@@ -75,18 +75,63 @@ var officers = {
 // __________________________________________
 // Initial Solution
 
+// function count(obj){
+//   for(var voter in obj){ // Inside alex
+//     // console.log(voter + " " + obj[voter]);
+//     var innerVoter = obj[voter];
 
-function count(obj){
-  for(var voter in obj){ // Inside alex
-    // console.log(voter + " " + obj[voter]);
-    var innerVoter = obj[voter];
+//       for(var key in innerVoter){ // information inside alex
+//         // console.log(key + " " + innerVoter[key])
+//         if(voteCount[key][innerVoter[key]]){
+//           voteCount[key][innerVoter[key]] += 1;
+//       }else{
+//         voteCount[key][innerVoter[key]] = 1
+//            }
 
-      for(var key in innerVoter){ // information inside alex
-        // console.log(key + " " + innerVoter[key])
-        if(voteCount[key][innerVoter[key]]){
-          voteCount[key][innerVoter[key]] += 1;
+//   }
+// }
+// }
+
+
+// function tally(obj){
+
+//   for(var title in obj){
+//     var votesCount = 0;
+//     //console.log(title + ' '+ obj[title])
+//     var innerName = obj[title];
+//     for(var name in innerName){
+//      // console.log(officers[title])
+//       if(votesCount < innerName[name]){
+//         votesCount = innerName[name]
+//         officers[title] = name
+
+//       }
+//     }
+//   }
+// }
+
+
+//  count(votes)
+//  console.log(voteCount)
+ // tally(voteCount)
+//console.log(voteCount.president["Bob"])
+// console.log(officers)
+// count(votes)
+//console.log(voteCount)
+
+
+// __________________________________________
+// Refactored Solution
+
+function count(ballot){
+  for(var voter in ballot){
+    var innerVoter = ballot[voter];
+
+      for(var name in innerVoter){
+        if(voteCount[name][innerVoter[name]]){
+          voteCount[name][innerVoter[name]] += 1;
       }else{
-        voteCount[key][innerVoter[key]] = 1
+        voteCount[name][innerVoter[name]] = 1
            }
 
   }
@@ -94,14 +139,12 @@ function count(obj){
 }
 
 
-function tally(obj){
+function tally(votes){
 
-  for(var title in obj){
+  for(var title in votes){
     var votesCount = 0;
-    //console.log(title + ' '+ obj[title])
-    var innerName = obj[title];
+    var innerName = votes[title];
     for(var name in innerName){
-     // console.log(officers[title])
       if(votesCount < innerName[name]){
         votesCount = innerName[name]
         officers[title] = name
@@ -112,18 +155,8 @@ function tally(obj){
 }
 
 
-// count(votes)
-// tally(voteCount)
-
-// console.log(officers)
-// count(votes)
-//console.log(voteCount)
-
-
-// __________________________________________
-// Refactored Solution
-
-
+count(votes)
+tally(voteCount)
 
 
 
@@ -131,7 +164,9 @@ function tally(obj){
 // __________________________________________
 // Reflection
 
-
+// What did you learn about iterating over nested objects in JavaScript? - I learned syntax for accessing objects and properties using placeholders, and generally learned how to look carefully at what something is pointing to.
+// Were you able to find useful methods to help you with this? Unfortunately, we couldn't find any methods that would improve our code. We looked for a bit but I don't know what exactly could be done by a method to make it work better.
+// What concepts were solidified in the process of working through this challenge? - Probably the main thing was how to count up the number of votes for a given candidate. We had a hard time coming up with a way to increment, finally realizing that you have to compare a given vote to voteCount's contents.
 
 
 
